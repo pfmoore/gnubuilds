@@ -1,8 +1,9 @@
 #!/bin/sh
 
-wget http://ftp.gnu.org/gnu/sed/sed-4.7.tar.xz
-tar xf sed-4.7.tar.xz
-cd sed-4.z
+cd $BUILD
+wget http://ftp.gnu.org/gnu/sed/sed-${SED_VER}.tar.xz
+tar xf sed-${SED_VER}.tar.xz
+cd sed-${SED_VER}
 mingw64-configure --disable-i18n --disable-nls
 make sed/sed.exe
-ls sed/sed.exe
+zip -j9 ${TARGET}/sed-${SED_VER}.zip */*.exe
